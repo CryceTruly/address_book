@@ -14,6 +14,6 @@ before script:
   - psql -c "create database django_auth;" -U postgres
 
 script:
-  - coverage run --omit="*wsgi*,*base*,*staging*,*production*," --source="authors" manage.py test authors --verbosity 3
+  - coverage run --omit="*wsgi*,*base*,*staging*,*production*," --source="auth" manage.py test auth --verbosity 3
   - coverage report -m
   - coveralls
