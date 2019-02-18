@@ -1,0 +1,7 @@
+omit =
+    test_settings
+    *migrations*
+    *admin.py
+    *static*
+    *templates*
+    home/travis/virtualenv/*
