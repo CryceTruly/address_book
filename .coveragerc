@@ -1,3 +1,7 @@
+[run]
+branch = True
+data_file = .coverage
+source=user_tasks
 omit =
     test_settings
     *migrations*
