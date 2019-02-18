@@ -4,7 +4,7 @@
 </p>
 
 [![Build Status](https://travis-ci.org/CryceTruly/django-auth-api.svg?branch=master)](https://travis-ci.org/CryceTruly/django-auth-api)
-
+[![Coverage Status](https://coveralls.io/repos/github/CryceTruly/django-auth-api/badge.svg?branch=master)](https://coveralls.io/github/CryceTruly/django-auth-api?branch=master)
 
 
 ## What is Django Auth App?
