@@ -1,0 +1,19 @@
+language: python
+
+python:
+  - "3.6"
+
+addon:
+  - postgresql: "9.6"
+
+install:
+  - pip install -r requirements.txt
+  - pip install coveralls
+
+before script:
+  - psql -c "create database django_auth;" -U postgres
+
+script:
+  - coverage run --omit="*wsgi*,*base*,*staging*,*production*," --source="authors" manage.py test authors --verbosity 3
+  - coverage report -m
+  - coveralls
