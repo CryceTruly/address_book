@@ -16,4 +16,3 @@ before script:
 script:
   - coverage run --omit="*wsgi*,*base*,*staging*,*production*," --source="auth" manage.py test auth --verbosity 3
   - coverage report -m
-  - coveralls
