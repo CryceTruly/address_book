@@ -9,3 +9,4 @@ omit =
     *static*
     *templates*
     home/travis/virtualenv/*
+    
