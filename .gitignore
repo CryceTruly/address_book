@@ -1,3 +1,8 @@
 env/*
 env
 .vscode
+.idea
+
+__pycache__/
+auth/__pycache__/
+django_auth/__pycache__/
