@@ -1,43 +1,35 @@
-from django.contrib.auth.models import User
 from rest_framework import serializers
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
 
-
-
+# User Serializer
 class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model=User
-        fields=('id','username','email')
+  class Meta:
+    model = User
+    fields = ('id', 'username', 'email')
 
-
-
-
-
+# Register Serializer
 class RegisterSerializer(serializers.ModelSerializer):
-    """
-    Serializer for registering new users.
-    """
-    email = serializers.EmailField()
+  class Meta:
+    model = User
+    fields = ('id', 'username', 'email', 'password')
+    extra_kwargs = {'password': {'write_only': True}}
 
-    class Meta(object):
-        extra_kwargs = {
-            "password": {
-                "style": {"input_type": "password"},
-                "write_only": True,
-            }
-        }
-        fields = ('username', "email", "password","first_name","last_name")
-        model = User
+  def create(self, validated_data):
+    user = User.objects.create_user(validated_data['username'],
+                                    validated_data['email'],
+                                    validated_data['password'],
+                                )
 
-    def create(self, validated_data):
+    return user
 
-        user = User.objects.create_user(**validated_data)
-        user.is_active = False
-        user.first_name = validated_data['first_name']
-        user.last_name = validated_data['last_name']
-        user.save()
-        return user
+# Login Serializer
+class LoginSerializer(serializers.Serializer):
+  username = serializers.CharField()
+  password = serializers.CharField()
 
-
-
-
-
+  def validate(self, data):
+    user = authenticate(**data)
+    if user and user.is_active:
+      return user
+    raise serializers.ValidationError("Incorrect Credentials")
