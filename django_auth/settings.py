@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'knox',
+    'django_rest_passwordreset',
+    
 ]
 
 MIDDLEWARE = [
@@ -71,6 +73,13 @@ TEMPLATES = [
 ]
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',)
+}
+DJANGO_REST_PASSWORDRESET_TOKEN_CONFIG = {
+    "CLASS": "django_rest_passwordreset.tokens.RandomStringTokenGenerator",
+    "OPTIONS": {
+        "min_length": 20,
+        "max_lenght": 30
+    }
 }
 
 WSGI_APPLICATION = 'django_auth.wsgi.application'
