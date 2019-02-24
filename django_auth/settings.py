@@ -42,8 +42,13 @@ INSTALLED_APPS = [
     'knox',
     'django_rest_passwordreset',
     'shouts',
-
+    'django_nose',
 ]
+# ]
+# TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+# NOSE_ARGS = [
+#     '--with-coverage'
+# ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
