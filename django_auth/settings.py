@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'knox',
     'django_rest_passwordreset',
-    
+    'shouts',
+
 ]
 
 MIDDLEWARE = [
@@ -89,9 +90,9 @@ WSGI_APPLICATION = 'django_auth.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-     'default': {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'django_auth',                      
+        'NAME': 'django_auth',
         'USER': 'postgres',
         'PASSWORD': 'crycetruly',
         'HOST': '127.0.0.1',

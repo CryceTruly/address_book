@@ -24,7 +24,6 @@ class BaseTest(APITestCase):
             valid_register_data), content_type='application/json')
         return response
 
-
     def register_and_login_user(self):
         """
         Method that registers, activates and logs in a user,

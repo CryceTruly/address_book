@@ -9,5 +9,6 @@ urlpatterns = [
   path('api/auth/login', LoginAPI.as_view(), name='login'),
   path('api/auth/profile', UserAPI.as_view(), name='profile'),
   path('api/auth/logout', knox_views.LogoutView.as_view(), name='knox_logout'),
-  path('api/auth/password_reset/', include('django_rest_passwordreset.urls', namespace='password_reset'))
+  path('api/auth/password_reset/', include('django_rest_passwordreset.urls',
+  namespace='password_reset'))
 ]
