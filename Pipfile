@@ -11,6 +11,7 @@ djangorestframework = "*"
 coveralls = "*"
 coverage = "*"
 django-rest-knox = "*"
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.7"
