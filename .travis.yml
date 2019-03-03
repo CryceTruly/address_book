@@ -7,8 +7,8 @@ addon:
   - postgresql: "9.6"
 
 install:
-  - pip install -r requirements.txt
-  - pip install coveralls
+  - pipenv install
+  - pipenv install coveralls
 
 before script:
   - psql -c "create database django_auth;" -U postgres
