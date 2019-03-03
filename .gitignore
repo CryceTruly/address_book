@@ -6,3 +6,4 @@ env
 __pycache__/
 auth/__pycache__/
 django_auth/__pycache__/
+.idea

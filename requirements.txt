@@ -10,6 +10,7 @@ coverage==4.5.2
 coveralls==1.5.1
 cryptography==2.5
 Django==2.1.7
+django-cors-headers==2.4.1
 django-nose==1.4.6
 django-rest-knox==3.6.0
 django-rest-passwordreset==0.9.7
@@ -47,7 +48,6 @@ pylint-plugin-utils==0.4
 pyOpenSSL==19.0.0
 pytest==4.2.1
 pytz==2018.9
-PyYAML==3.13
 requests==2.21.0
 requirements-detector==0.6
 setoptconf==0.2.0
