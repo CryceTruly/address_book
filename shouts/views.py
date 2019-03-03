@@ -9,12 +9,9 @@ from rest_framework import permissions
 
 class ContactViewSet(viewsets.ModelViewSet):
     serializer_class = ContactSerializer
-    permission_classes = [
-        permissions.IsAuthenticated
-    ]
 
     def get_queryset(self):
-        return Contact.objects.filter(user=self.request.user).all()
+        return Contact.objects.all()
 
     # def list(self, request):
     #     querySet = Contact.objects.all()
