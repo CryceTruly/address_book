@@ -1,4 +1,4 @@
-import {GET_CONTACTS,DELETE_CONTACT} from '../actions/types.js';
+import {GET_CONTACTS,ADD_CONTACT,DELETE_CONTACT} from '../actions/types.js';
 
 const initialState={
   contacts:[]
@@ -13,6 +13,11 @@ action){
     return {
       ...state,
       contacts:action.payload
+    };
+    case ADD_CONTACT:
+    return {
+      ...state,
+      contacts:[...state.contacts,action.payload]
     };
 
     case DELETE_CONTACT:

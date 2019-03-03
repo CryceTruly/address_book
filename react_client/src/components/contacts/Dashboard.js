@@ -9,8 +9,9 @@ export default function DashBoard(){
 
 <div className="container">
 <Fragment>
+  <Form/>
 <Contacts/>
-<Form/>
+
 
 </Fragment>
 </div>

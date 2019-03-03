@@ -6,7 +6,7 @@ import {
 } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
-  getContacts,deleteContact
+  getContacts,deleteContact,addContact
 } from '../../actions/contacts'
 
 export class Contacts extends Component {
