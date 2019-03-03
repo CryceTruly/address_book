@@ -9,6 +9,7 @@ verify_ssl = true
 django = "*"
 djangorestframework = "*"
 coveralls = "*"
+coverage = "*"
 
 [requires]
 python_version = "3.7"
