@@ -9,12 +9,8 @@ addon:
 install:
   - pip install pipenv
   - pipenv install --skip-lock
-
-before script:
-  - psql -c "create database django_auth;" -U postgres
-
 script:
-  - coverage run --omit="*wsgi*,*base*,*staging*,*production*," --source="auth" manage.py test auth --verbosity 3
+  - coverage run manage.py test auth --verbosity 3
   - coverage report -m
   - coveralls
 after script:
