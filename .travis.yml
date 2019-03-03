@@ -7,6 +7,7 @@ addon:
   - postgresql: "9.6"
 
 install:
+  - pip install pipenv
   - pipenv install
   - pipenv install coveralls
 
