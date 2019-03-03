@@ -9,7 +9,6 @@ addon:
 install:
   - pip install pipenv
   - pipenv install --skip-lock
-  - pipenv install coveralls
 
 before script:
   - psql -c "create database django_auth;" -U postgres
