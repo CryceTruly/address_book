@@ -10,6 +10,7 @@ django = "*"
 djangorestframework = "*"
 coveralls = "*"
 coverage = "*"
+django-rest-knox = "*"
 
 [requires]
 python_version = "3.7"
