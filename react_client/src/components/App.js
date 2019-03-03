@@ -11,6 +11,7 @@ import Contacts from './contacts/Contacts'
 import { Provider } from "react-redux";
 import {HashRouter as Router,Route,Switch,Redirect} from 'react-router-dom';
 import PrivateRoute from './common/PrivateRoute'
+import {loadUser} from '../actions/auth';
 
 import store from "../Store";
 // Alert Options
@@ -21,7 +22,7 @@ const alertOptions = {
 
 class App extends Component {
   componentDidMount() {
-    console.log(123);
+    store.dispatch(loadUser())
   }
 
   render() {
