@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {createMessage} from './messages';
+import {tokenConfig} from './auth';
 
 import {GET_CONTACTS,DELETE_CONTACT,ADD_CONTACT,GET_ERRORS} from './types'
 
@@ -7,8 +8,8 @@ import {GET_CONTACTS,DELETE_CONTACT,ADD_CONTACT,GET_ERRORS} from './types'
 
 const BASE_URL='http://127.0.0.1:8000/contacts/'
 
-export const getContacts=()=>dispach=>{
-axios.get(BASE_URL).then(contacts=>{
+export const getContacts=()=>(dispach,getState)=>{
+axios.get(BASE_URL,tokenConfig(getState)).then(contacts=>{
   dispach({
     type:GET_CONTACTS,
     payload:contacts.data
@@ -22,8 +23,8 @@ axios.get(BASE_URL).then(contacts=>{
 //Delete
 
 
-export const deleteContact=(id)=>dispach=>{
-axios.delete(`${BASE_URL}${id}/`).then(contacts=>{
+export const deleteContact=(id)=>(dispach,getState)=>{
+axios.delete(`${BASE_URL}${id}/`,tokenConfig(getState)).then(contacts=>{
 
   dispach(createMessage({deleteContact:'Contact Deleted'}))
 
@@ -37,8 +38,8 @@ axios.delete(`${BASE_URL}${id}/`).then(contacts=>{
 }
 
 
-export const addContact=(contact)=>dispach=>{
-axios.post(BASE_URL,contact).then(contact=>{
+export const addContact=(contact)=>(dispach,getState)=>{
+axios.post(BASE_URL,contact,tokenConfig(getState)).then(contact=>{
 
   dispach(createMessage({addContact:'Contact Added'}))
 

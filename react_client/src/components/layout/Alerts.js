@@ -24,7 +24,7 @@ export class Alerts extends Component {
     if (message !== prevProps.message) {
       if (message.deleteContact) alert.success(message.deleteContact);
       if (message.addContact) alert.success(message.addContact);
-      if (message.passwordNotMatch) alert.error(message.passwordNotMatch);
+      if (message.passwordsNotMatch) alert.error(message.passwordsNotMatch);
     }
   }
 
