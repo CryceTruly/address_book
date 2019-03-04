@@ -1,9 +1,10 @@
 from django.contrib.auth import authenticate, password_validation
 from django.contrib.auth.models import User
 from rest_framework import serializers, exceptions
-
-
+import time
+from knox.models import AuthToken
 # User Serializer
+
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -25,6 +26,9 @@ class RegisterSerializer(serializers.ModelSerializer):
         email = data.get('email')
         if not email:
             raise serializers.ValidationError('Email is required')
+        email_user = User.objects.filter(email=email)
+        if email_user:
+            raise(serializers.ValidationError('Email is taken'))
 
         errors = dict()
         try:
@@ -37,10 +41,15 @@ class RegisterSerializer(serializers.ModelSerializer):
 
         return super(RegisterSerializer, self).validate(data)
 
-    def create(self, validated_data):
+    def create(self, validated_data, **kwargs):
         user = User.objects.create_user(
-          validated_data['username'], validated_data['email'],
-          validated_data['password'])
+            validated_data['username'],
+            validated_data['email'],
+            validated_data['password'])
+
+        user.is_active = False
+        user.save()
+
         return user
 
 # Login Serializer
@@ -55,3 +64,18 @@ class LoginSerializer(serializers.Serializer):
         if user and user.is_active:
             return user
         raise serializers.ValidationError("Incorrect Credentials")
+
+
+class VerifyUserSerializer(serializers.Serializer):
+    is_active = serializers.BooleanField
+
+    def update(self, validated_data):
+        print('heloooooooo')
+        print(validated_data)
+        time.sleep((20000))
+        # instance.is_active = validated_data.get('is_active', True)
+        return 1
+
+    def validate(self, data):
+
+        raise serializers.ValidationError('An error has occured')

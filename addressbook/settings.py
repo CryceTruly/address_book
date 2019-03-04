@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -42,6 +41,7 @@ INSTALLED_APPS = [
     'knox',
     'contacts',
     'corsheaders',
+
 
 ]
 
@@ -75,7 +75,9 @@ TEMPLATES = [
     },
 ]
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',)
+
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',
+                                       )
 }
 
 WSGI_APPLICATION = 'addressbook.wsgi.application'
@@ -144,3 +146,9 @@ CORS_ORIGIN_WHITELIST = (
 CORS_ORIGIN_REGEX_WHITELIST = (
     'localhost:3030',
 )
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')

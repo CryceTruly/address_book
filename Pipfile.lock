@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "f5c3605e6e4dd2db9b57aa3835187033bf2949bf4c0f729fa3491ea69d92c23a"
+            "sha256": "13f1837958ab0ef3dfc027de9ba85d9d56b8931bba5f58d1b24cd9269fd8768e"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -166,11 +166,11 @@
         },
         "djangorestframework": {
             "hashes": [
-                "sha256:79c6efbb2514bc50cf25906d7c0a5cfead714c7af667ff4bd110312cd380ae66",
-                "sha256:a4138613b67e3a223be6c97f53b13d759c5b90d2b433bad670b8ebf95402075f"
+                "sha256:8a435df9007c8b7d8e69a21ef06650e3c0cbe0d4b09e55dd1bd74c89a75a9fcd",
+                "sha256:f7a266260d656e1cf4ca54d7a7349609dc8af4fe2590edd0ecd7d7643ea94a17"
             ],
             "index": "pypi",
-            "version": "==3.9.1"
+            "version": "==3.9.2"
         },
         "docopt": {
             "hashes": [
@@ -262,6 +262,14 @@
                 "sha256:a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"
             ],
             "version": "==2.19"
+        },
+        "pyjwt": {
+            "hashes": [
+                "sha256:5c6eca3c2940464d106b99ba83b00c6add741c9becaec087fb7ccdefea71350e",
+                "sha256:8d59a976fb773f3e6a39c85636357c4f0e242707394cadadd9814f5cbaa20e96"
+            ],
+            "index": "pypi",
+            "version": "==1.7.1"
         },
         "pyopenssl": {
             "hashes": [
