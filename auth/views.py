@@ -30,10 +30,11 @@ class RegisterAPI(generics.GenericAPIView):
                                  user.email])
 
         email.send()
+        token= AuthToken.objects.create(user)[1]
 
         return Response({
             "user": user_data,
-            "token": AuthToken.objects.create(user)
+            "token":token
 
         },
             status=status.HTTP_201_CREATED
@@ -51,7 +52,7 @@ class LoginAPI(generics.GenericAPIView):
         user = serializer.validated_data
         return Response({
             "user": UserSerializer(user, context=self.get_serializer_context()).data,
-            "token": AuthToken.objects.create(user)
+            "token": AuthToken.objects.create(user)[1]
         })
 
 # Get User API

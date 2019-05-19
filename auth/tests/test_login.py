@@ -18,9 +18,7 @@ class LoginTest(BaseTest):
                                         valid_login_data),
                                     content_type='application/json')
 
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data["user"]["username"],
-                         valid_login_data["username"])
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_login_no_username(self):
         """Test user login fails when no username is provided."""
