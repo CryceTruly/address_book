@@ -1,17 +1,22 @@
+dist: xenial # required for Python >= 3.7
 language: python
-
 python:
-  - "3.6"
+  - "3.7"
 
-addon:
-  - postgresql: "9.6"
+addons:
+  postgresql: "10"
+  apt:
+    packages:
+      - postgresql-10
+      - postgresql-client-10
 
 install:
   - pip install pipenv
   - pipenv install --skip-lock
 script:
-  - coverage run manage.py test auth --verbosity 3
-  - coverage report -m
+  - pipenv install coverage
+  - pipenv install coveralls
+  - coverage run --source='auth' manage.py test && coverage report
   - coveralls
 after script:
   - coveralls

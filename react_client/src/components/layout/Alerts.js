@@ -1,5 +1,3 @@
-
-
 import React, { Component, Fragment } from "react";
 import { withAlert } from "react-alert";
 import { connect } from "react-redux";
@@ -16,7 +14,7 @@ export class Alerts extends Component {
     if (error !== prevProps.error) {
       if (error.msg.fullname) alert.error(`Name: ${error.msg.fullname.join()}`);
       if (error.msg.phone) alert.error(`Email: ${error.msg.phone.join()}`);
-            if (error.msg.non_field_errors)
+      if (error.msg.non_field_errors)
         alert.error(error.msg.non_field_errors.join());
       if (error.msg.username) alert.error(error.msg.username.join());
     }

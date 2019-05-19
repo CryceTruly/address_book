@@ -7,11 +7,10 @@ import Dashboard from "./contacts/Dashboard";
 import Alerts from "./layout/Alerts";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
-import Contacts from './contacts/Contacts'
 import { Provider } from "react-redux";
-import {HashRouter as Router,Route,Switch,Redirect} from 'react-router-dom';
-import PrivateRoute from './common/PrivateRoute'
-import {loadUser} from '../actions/auth';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import PrivateRoute from "./common/PrivateRoute";
+import { loadUser } from "../actions/auth";
 
 import store from "../Store";
 // Alert Options
@@ -22,33 +21,24 @@ const alertOptions = {
 
 class App extends Component {
   componentDidMount() {
-    store.dispatch(loadUser())
+    store.dispatch(loadUser());
   }
 
   render() {
     return (
       <Provider store={store}>
         <AlertProvider template={AlertTemplate} {...alertOptions}>
-<Router>
-  <Fragment>
-    <Header />
-    <Alerts />
-    <div className="container">
-<switch>
-<PrivateRoute exact path="/" component={Dashboard}></PrivateRoute>
-  <Route exact path="/register" component={Register}></Route>
-    <Route exact path="/login" component={Login}></Route>
-
-
-
-
-</switch>
-
-    </div>
-  </Fragment>
-
-</Router>
-
+          <Router>
+            <Fragment>
+              <Header />
+              <Alerts />
+              <div className="container">
+                <PrivateRoute exact path="/" component={Dashboard} />
+                <Route exact path="/register" component={Register} />
+                <Route exact path="/login" component={Login} />
+              </div>
+            </Fragment>
+          </Router>
         </AlertProvider>
       </Provider>
     );

@@ -4,6 +4,7 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pep8 = "*"
 
 [packages]
 django = "*"
@@ -13,8 +14,10 @@ coverage = "*"
 django-rest-knox = "*"
 django-cors-headers = "*"
 psycopg2-binary = "*"
-psycopg2 = "*"
+psycopg2 = "==2.7.7"
 pyjwt = "*"
+urllib3 = "*"
+pyyaml = "*"
 
 [requires]
 python_version = "3.7"

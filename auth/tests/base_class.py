@@ -32,9 +32,6 @@ class BaseTest(APITestCase):
         self.register_test_user()
         response = self.client.post(self.url_login, data=valid_login_data,
                                     format='json')
-        token = response.data['token']
-
-        self.client.credentials(HTTP_AUTHORIZATION=f'Token {token}')
 
     def created_user(self):
         return User.objects.create_user(
