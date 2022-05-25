@@ -16,7 +16,7 @@ psycopg2==2.7.7
 psycopg2-binary==2.8.2
 pycodestyle==2.5.0
 pycparser==2.19
-PyJWT==1.7.1
+PyJWT==2.4.0
 pyOpenSSL==19.0.0
 pytz==2019.1
 requests==2.22.0
